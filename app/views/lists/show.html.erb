@@ -1,0 +1,29 @@
+<h2> This is <%= @list.name %></h2>
+
+<!-- a rajouter ici la liste des films dans la liste -->
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+  <li><%= bookmark.movie.poster_url %></li>
+  <li><%= bookmark.movie.title %></li>
+  <li><%= bookmark.movie.overview %></li>
+  <li><%= bookmark.movie.rating %></li>
+  <li><%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'} %></li>
+  <br>
+  <br>
+  <% end %>
+</ul>
+
+article_path(article)
+
+
+<h2>Leave your Comment</h2>
+
+<!-- simple form for deux at dont l'endroit ou il est-->
+<%= simple_form_for [ @list, @bookmark ] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= link_to 'Go back to main page', lists_path %>
