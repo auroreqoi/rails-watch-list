@@ -1,29 +1,35 @@
+<div class='nav-show'>
 <h2> This is <%= @list.name %></h2>
-
+</div>
 <!-- a rajouter ici la liste des films dans la liste -->
-<ul>
-  <% @bookmarks.each do |bookmark| %>
-  <li><%= bookmark.movie.poster_url %></li>
-  <li><%= bookmark.movie.title %></li>
-  <li><%= bookmark.movie.overview %></li>
-  <li><%= bookmark.movie.rating %></li>
-  <li><%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'} %></li>
+<div class='card'>
+<% @bookmarks.each do |bookmark| %>
+
+  <div class='card-info'>
+    <%= image_tag bookmark.movie.poster_url, alt: 'an image', width: 200 %>
+    <div class='info'>
+      <h3><%= bookmark.movie.title %></h3>
+      <p><%= bookmark.movie.overview %></p>
+      <div class='button'>
+        <i class="fas fa-star"><%= bookmark.movie.rating %></i>
+        <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'%>
+      </div>
+    </div>
+  </div>
   <br>
   <br>
   <% end %>
-</ul>
+</div>
 
-article_path(article)
-
-
-<h2>Leave your Comment</h2>
+<h2>another movie to put in this list?</h2>
 
 <!-- simple form for deux at dont l'endroit ou il est-->
-<%= simple_form_for [ @list, @bookmark ] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
-
+<div class='form'>
+  <%= simple_form_for [ @list, @bookmark ] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <%= link_to 'Go back to main page', lists_path %>

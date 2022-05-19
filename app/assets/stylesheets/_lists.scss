@@ -1,0 +1,68 @@
+// Place all the styles related to the lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background-color: black;
+}
+
+.nav-show {
+  height: 20vh;
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcyan;
+}
+
+
+.card-info{
+  background-color: white;
+  box-shadow: 2px 2px 4px black;
+  margin: 25px 50px;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-radius: 5px;
+  img {
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+  };
+}
+
+.info {
+  color: lightcoral;
+  background-color: lightgray;
+  width: auto;
+  height: 150px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+i {
+  color: yellow
+}
+
+a {
+  width: 100px
+}
+
+h2 {
+  color: white;
+  margin-left: 250px;
+}
+
+.form {
+  border-radius: 5px;
+  width: 500px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  margin-left: 250px;
+}
